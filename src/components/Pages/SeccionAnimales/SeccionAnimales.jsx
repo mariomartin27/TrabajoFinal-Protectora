@@ -16,6 +16,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const SeccionAnimales = () => {
   const [animals, setAnimals] = useState([]);
@@ -44,10 +45,13 @@ const SeccionAnimales = () => {
         {animals.map(animal => (
           <li key={animal._id}>
             <div>
+            <Link to={`/Adopcion/${animal._id}`}>
               <img src={animal.imagen} alt={animal.nombre} />
+              </Link>
             </div>
             <div>
               <h2>{animal.nombre}</h2>
+              
               <p><strong>Personalidad:</strong> {animal.personalidad.join(', ')}</p>
               <p><strong>Peso:</strong> {animal.peso} kg</p>
               <p><strong>Nacimiento:</strong> {animal.nacimiento}</p>

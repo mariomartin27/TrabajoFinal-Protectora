@@ -7,6 +7,7 @@ import SeccionAnimales from './components/Pages/SeccionAnimales/SeccionAnimales'
 
 import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
 import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/SeccionOtrosServicios';
+import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path= "/" element= {<Home/>}/>
         <Route path = "/Mapa" element= {<SeccionMapa/>} />
         <Route path = "/Adopcion" element= {<SeccionAnimales/>} />
+        <Route path='/Adopcion/:_id' element={<SeccionDetalle/>} />
         <Route path = "/Perfil" element= {<SeccionPerfil/>} />
         <Route path = "/OtrosServicios" element= {<SeccionOtrosServicios/>} />
         </Routes> 
