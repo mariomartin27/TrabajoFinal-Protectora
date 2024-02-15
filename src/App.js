@@ -4,10 +4,13 @@ import { Home } from './components/Pages/Home/Home';
 import { SeccionMapa } from './components/Pages/SeccionMapa/SeccionMapa';
 // import { SeccionAnimales } from './components/Pages/SeccionAnimales/SeccionAnimales';
 import SeccionAnimales from './components/Pages/SeccionAnimales/SeccionAnimales';
-
 import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
 import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/SeccionOtrosServicios';
+
 import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
+
+import { Carrousel } from './components/Pages/Carrousel/Carrousel';
+
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path= "/" element= {<Home/>}/>
+        <Route path= "/Carrousel" element= {<Carrousel/>}/>
         <Route path = "/Mapa" element= {<SeccionMapa/>} />
         <Route path = "/Adopcion" element= {<SeccionAnimales/>} />
         <Route path='/Adopcion/:_id' element={<SeccionDetalle/>} />
@@ -22,7 +26,7 @@ function App() {
         <Route path = "/OtrosServicios" element= {<SeccionOtrosServicios/>} />
         </Routes> 
       </BrowserRouter>
-         </>
+    </>
   );
 }
 
