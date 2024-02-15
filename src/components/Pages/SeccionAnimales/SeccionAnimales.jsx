@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./SeccionAnimales.css";
 import Nav from "../../Core/Nav/Nav";
+import { Link } from "react-router-dom";
 
 const SeccionAnimales = () => {
   const [animals, setAnimals] = useState([]);
@@ -11,7 +12,7 @@ const SeccionAnimales = () => {
     ciudad: "",
     especie: "",
     sexo: "",
-    tamaño: ""
+    tamaño: "",
   });
   const [initialLoad, setInitialLoad] = useState(true);
   const [cities, setCities] = useState([]);
@@ -42,32 +43,39 @@ const SeccionAnimales = () => {
   }, [filters]);
 
   useEffect(() => {
-    const uniqueCities = new Set(originalAnimals.map((animal) => animal.ciudad));
+    const uniqueCities = new Set(
+      originalAnimals.map((animal) => animal.ciudad)
+    );
     setCities(["", ...Array.from(uniqueCities)]);
-    
-    const uniqueSpecies = new Set(originalAnimals.map((animal) => animal.especie));
+
+    const uniqueSpecies = new Set(
+      originalAnimals.map((animal) => animal.especie)
+    );
     setSpecies(["", ...Array.from(uniqueSpecies)]);
   }, [originalAnimals]);
-
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 
   const filtrarAnimales = (data) => {
     let filteredAnimals = data;
 
-
     if (filters.ciudad) {
-      filteredAnimals = filteredAnimals.filter(animal => animal.ciudad === filters.ciudad);
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.ciudad === filters.ciudad
+      );
     }
     if (filters.especie) {
-      filteredAnimals = filteredAnimals.filter(animal => animal.especie === filters.especie);
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.especie === filters.especie
+      );
     }
     if (filters.sexo) {
-      filteredAnimals = filteredAnimals.filter(animal => animal.sexo === filters.sexo);
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.sexo === filters.sexo
+      );
     }
     if (filters.tamaño) {
-      filteredAnimals = filteredAnimals.filter(animal => animal.tamaño === filters.tamaño);
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.tamaño === filters.tamaño
+      );
     }
 
     return filteredAnimals;
@@ -77,7 +85,7 @@ import { Link } from 'react-router-dom';
     const { name, value } = e.target;
     setFilters((prevFilters) => ({
       ...prevFilters,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -86,7 +94,6 @@ import { Link } from 'react-router-dom';
   }
 
   return (
-
     <>
       <div className="screen_container">
         <div className="filter_container">
@@ -120,7 +127,6 @@ import { Link } from 'react-router-dom';
                   </option>
                 ))}
               </select>
-
             </div>
             <div className="filter_row">
               <label>Sexo:</label>
@@ -151,23 +157,23 @@ import { Link } from 'react-router-dom';
         </div>
         <ul className="main_animal_container">
           {animals.map((animal) => (
-             <Link to={`/Adopcion/${animal._id}`}>
-            <li key={animal._id} className="individual_animal_container">
-              <div className="animal_photo">
-                <img src={animal.imagen} alt={animal.nombre} />
-              </div>
-              <div className="animal_data">
-                <div className="animal_name">
-                  <h2>{animal.nombre}</h2>
+            <Link to={`/Adopcion/${animal._id}`}>
+              <li key={animal._id} className="individual_animal_container">
+                <div className="animal_photo">
+                  <img src={animal.imagen} alt={animal.nombre} />
                 </div>
-                <div className="animal_city">
-                  <p>
-                    <strong>Ciudad:</strong> {animal.ciudad}
-                  </p>
+                <div className="animal_data">
+                  <div className="animal_name">
+                    <h2>{animal.nombre}</h2>
+                  </div>
+                  <div className="animal_city">
+                    <p>
+                      <strong>Ciudad:</strong> {animal.ciudad}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
-       </Link>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

@@ -4,9 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import SeccionDetalleDatos from "./SeccionDetalleDatos";
 import SeccionDetallesSalud from "./SeccionDetallesSalud";
 import SeccionDetallesAdopcion from "./SeccionDetallesAdopcion";
-import "./SeccionDetalles.css"
-
-
+import "./SeccionDetalles.css";
+import "./SeccionDetalleSalud.css";
+import "./SeccionDetallesAdopcion.css";
+import SeccionDetallepopup from "./SeccionDetallepopup";
 
 function SeccionDetalle({ datos, salud, adopcion }) {
   const [animals, setDetalleAnimals] = useState({});
@@ -14,6 +15,11 @@ function SeccionDetalle({ datos, salud, adopcion }) {
   const [showSalud, setShowSalud] = useState(false);
   const [showAdopcion, setShowAdopcion] = useState(false);
   const [error, setError] = useState(null);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   const { _id } = useParams();
 
@@ -44,42 +50,46 @@ function SeccionDetalle({ datos, salud, adopcion }) {
           />
         </Link>
         <div className="nombreCiudad">
-        <p><strong>{animals.nombre}</strong></p>
-        <p><strong>{animals.ciudad}</strong> </p>
+          <p>
+            <strong>{animals.nombre}</strong>
+          </p>
+          <p>
+            <strong>{animals.ciudad}</strong>{" "}
+          </p>
         </div>
       </div>
-      <div className= "menuDetalle">
-      <h3
-        className="custom-btn btn-4"
-        onClick={() => {
-          setShowDatos(true);
-          setShowSalud(false);
-          setShowAdopcion(false);
-        }}
-      >
-        Datos
-      </h3>
-      <h3
-        className="custom-btn btn-4"
-        onClick={() => {
-          setShowDatos(false);
-          setShowSalud(true);
-          setShowAdopcion(false);
-        }}
-      >
-        Salud
-      </h3>
-      <h3
-        className="custom-btn btn-4"
-        onClick={() => {
-          setShowDatos(false);
-          setShowSalud(false);
-          setShowAdopcion(true);
-        }}
-      >
-        Adopción
-      </h3>
-
+      <div className="menuDetalle">
+        <h3
+          className="custom-btn btn-4"
+          onClick={() => {
+            setShowDatos(true);
+            setShowSalud(false);
+            setShowAdopcion(false);
+          }}
+        >
+          Datos
+        </h3>
+        <h3
+          className="custom-btn btn-4"
+          onClick={() => {
+            setShowDatos(false);
+            setShowSalud(true);
+            setShowAdopcion(false);
+          }}
+        >
+          Salud
+        </h3>
+        <h3
+          className="custom-btn btn-4"
+          onClick={() => {
+            setShowDatos(false);
+            setShowSalud(false);
+            setShowAdopcion(true);
+          }}
+        >
+          Adopción
+        </h3>
+      </div>
       <div>
         {showDatos ? (
           <SeccionDetalleDatos datos={datos} />
@@ -89,10 +99,21 @@ function SeccionDetalle({ datos, salud, adopcion }) {
           <SeccionDetallesAdopcion adopcion={adopcion} />
         ) : null}
       </div>
-      </div>
-
       <div className="detallesbuttonadoptar2">
-        <button className="detallesbuttonadoptar">Adoptar</button>
+        <button className="detallesbuttonadoptar" onClick={openModal}>
+          Adoptar
+        </button>
+        <SeccionDetallepopup isOpen={isModalOpen} onClose={closeModal}>
+          <h2 className="tituloadopcion">Solicitud de adopción</h2>
+          <p className="parrafoadopcion">
+            Adoptar es un acto de amor, pero sobre todo una responsabilidad de
+            por vida
+          </p>
+          <p className="parrafoadopcion">
+            Por éste motivo es importante que veas el siguiente vídeo donde te
+            explicamos como va a ser todo el proceso de adopción
+          </p>
+        </SeccionDetallepopup>
       </div>
     </div>
   );
