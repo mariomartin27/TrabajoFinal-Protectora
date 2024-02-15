@@ -49,8 +49,13 @@ const SeccionAnimales = () => {
     setSpecies(["", ...Array.from(uniqueSpecies)]);
   }, [originalAnimals]);
 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
   const filtrarAnimales = (data) => {
     let filteredAnimals = data;
+
 
     if (filters.ciudad) {
       filteredAnimals = filteredAnimals.filter(animal => animal.ciudad === filters.ciudad);
@@ -81,6 +86,7 @@ const SeccionAnimales = () => {
   }
 
   return (
+
     <>
       <div className="screen_container">
         <div className="filter_container">
@@ -114,6 +120,7 @@ const SeccionAnimales = () => {
                   </option>
                 ))}
               </select>
+
             </div>
             <div className="filter_row">
               <label>Sexo:</label>
@@ -144,6 +151,7 @@ const SeccionAnimales = () => {
         </div>
         <ul className="main_animal_container">
           {animals.map((animal) => (
+             <Link to={`/Adopcion/${animal._id}`}>
             <li key={animal._id} className="individual_animal_container">
               <div className="animal_photo">
                 <img src={animal.imagen} alt={animal.nombre} />
@@ -159,6 +167,7 @@ const SeccionAnimales = () => {
                 </div>
               </div>
             </li>
+       </Link>
           ))}
         </ul>
       </div>

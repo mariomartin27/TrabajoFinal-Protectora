@@ -6,7 +6,11 @@ import { SeccionMapa } from './components/Pages/SeccionMapa/SeccionMapa';
 import SeccionAnimales from './components/Pages/SeccionAnimales/SeccionAnimales';
 import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
 import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/SeccionOtrosServicios';
+
+import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
+
 import { Carrousel } from './components/Pages/Carrousel/Carrousel';
+
 
 function App() {
   return (
@@ -17,6 +21,7 @@ function App() {
         <Route path= "/Carrousel" element= {<Carrousel/>}/>
         <Route path = "/Mapa" element= {<SeccionMapa/>} />
         <Route path = "/Adopcion" element= {<SeccionAnimales/>} />
+        <Route path='/Adopcion/:_id' element={<SeccionDetalle/>} />
         <Route path = "/Perfil" element= {<SeccionPerfil/>} />
         <Route path = "/OtrosServicios" element= {<SeccionOtrosServicios/>} />
         </Routes> 
