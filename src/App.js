@@ -1,6 +1,5 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { useState } from "react";
 import { Home } from './components/Pages/Home/Home';
 import { SeccionMapa } from './components/Pages/SeccionMapa/SeccionMapa';
 import { SeccionAnimales } from './components/Pages/SeccionAnimales/SeccionAnimales';
