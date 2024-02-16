@@ -1,17 +1,12 @@
-
-
-/*Enlaces*/
-
-
-.layout__perfil--1{
+.layout__plus--1{
     display: flex;
     flex-direction: column;
     width: 100%;
-   align-items: center;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 200px;
 }
-.perfil__items{
+.plus__items{
     display: flex;
     flex-direction: row;
     align-items:center;
@@ -19,46 +14,29 @@
     border: 3px solid #8bc34a;
     margin-bottom: 20px;
     width: 80%;
+    text-decoration: none;
+    color: black;
     height: 40px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
    
 }
 
-.perfil__img{
+.plus__img{
     width: 30px;
     height: 30px;
     margin-left: 5px;
 }
 
-.perfil__icon{
+.plus__icon{
     display: flex;
     width: 13px;
     margin-right: 5px;
 }
 
-.layout__perfil--2{
+.layout__plus--2{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-bottom: 100px;
-}
-
-/*Foto de Usuario*/
-
-.persona__img{
-    display: flex;
-    width: 90%;
-    justify-content: center;
-    margin-top: 50px;
-    margin-left: 30px;
-
-}
-
-.img__person{
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    border: 3px solid #8bc34a;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }

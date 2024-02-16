@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./SeccionAnimales.css";
 import Nav from "../../Core/Nav/Nav";
+import { Link } from 'react-router-dom';
 
 const SeccionAnimales = () => {
   const [animals, setAnimals] = useState([]);
@@ -49,9 +50,8 @@ const SeccionAnimales = () => {
     setSpecies(["", ...Array.from(uniqueSpecies)]);
   }, [originalAnimals]);
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+
+
 
   const filtrarAnimales = (data) => {
     let filteredAnimals = data;
