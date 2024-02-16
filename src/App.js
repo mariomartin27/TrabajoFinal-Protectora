@@ -14,6 +14,8 @@ import { Formulario3 } from './components/Formulario/Formulario3';
 import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
 
 import { Carrousel } from './components/Pages/Carrousel/Carrousel';
+import { Acceder } from './components/Pages/Acceder/Acceder';
+import { SeccionRegistro } from './components/Pages/SeccionRegistro/SeccionRegistro';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
       <Routes>
         <Route path= "/" element= {<Home/>}/>
         <Route path= "/Carrousel" element= {<Carrousel/>}/>
+        <Route path= "/Acceder" element= {<Acceder/>}/>
+        <Route path= "/Registro" element= {<SeccionRegistro/>}/>
         <Route path = "/Mapa" element= {<SeccionMapa/>} />
         <Route path = "/Adopcion" element= {<SeccionAnimales/>} />
         <Route path='/Adopcion/:_id' element={<SeccionDetalle/>} />

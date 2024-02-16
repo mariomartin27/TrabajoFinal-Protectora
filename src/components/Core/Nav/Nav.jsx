@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import "./Nav.css"
 export const Nav = () => {
   return (
+
     <div className="Nav">
       <Link to={"/"} className="botonNav" src="/iconos">
         <img className="img__nav" src="iconos\primarios\refugio-de-animales.png"></img>
       </Link>
+      <Link to= {"/Carrousel"}  className='botonNav'> Carrousel </Link>
+       <Link to= {"/Acceder"}  className='botonNav'> Acceder</Link>
+       
       <Link to={"/Mapa"} className="botonNav">
         <img className="img__nav" src="iconos\primarios\localizacion.png"></img>
       </Link>
@@ -19,6 +23,7 @@ export const Nav = () => {
       <Link to={"/OtrosServicios"} className="botonNav">
         <img className="img__nav--circle" src="iconos\secundarios\tres-puntos.png"></img>
       </Link>
+
     </div>
   );
 };
