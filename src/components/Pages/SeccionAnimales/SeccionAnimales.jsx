@@ -4,6 +4,7 @@ import "./SeccionAnimales.css";
 import Nav from "../../Core/Nav/Nav";
 import { Link } from "react-router-dom";
 
+
 const SeccionAnimales = () => {
   const [animals, setAnimals] = useState([]);
   const [originalAnimals, setOriginalAnimals] = useState([]);

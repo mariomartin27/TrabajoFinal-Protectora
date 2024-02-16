@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './components/Pages/Home/Home';
-import { SeccionMapa } from './components/Pages/SeccionMapa/SeccionMapa';
+import SeccionMapa  from './components/Pages/SeccionMapa/SeccionMapa';
 // import { SeccionAnimales } from './components/Pages/SeccionAnimales/SeccionAnimales';
 import SeccionAnimales from './components/Pages/SeccionAnimales/SeccionAnimales';
 import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
@@ -9,6 +9,7 @@ import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/
 import { Formulario } from './components/Formulario/Formulario';
 import { Formulario2 } from './components/Formulario/Formulario2';
 import { Formulario3 } from './components/Formulario/Formulario3';
+
 
 import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
 
