@@ -50,6 +50,8 @@ const SeccionAnimales = () => {
     return filteredData;
   };
 
+  // HOLA
+
   const filtrarPorNombre = (data) => {
     return data.filter(animal => animal.nombre.toLowerCase().includes(searchTerm.toLowerCase()));
   };
