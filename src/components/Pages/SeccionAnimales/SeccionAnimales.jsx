@@ -13,6 +13,7 @@ const SeccionAnimales = () => {
     especies: [],
     sexo: [],
     tamaño: [],
+
   });
   const [cities, setCities] = useState([]);
   const [species, setSpecies] = useState([]);
@@ -39,9 +40,22 @@ const SeccionAnimales = () => {
   }, []);
 
   useEffect(() => {
+
     const filteredAnimals = filtrarAnimales(originalAnimals);
     setAnimals(filteredAnimals);
   }, [filters, searchTerm]);
+
+    const uniqueCities = new Set(
+      originalAnimals.map((animal) => animal.ciudad)
+    );
+    setCities(["", ...Array.from(uniqueCities)]);
+
+    const uniqueSpecies = new Set(
+      originalAnimals.map((animal) => animal.especie)
+    );
+    setSpecies(["", ...Array.from(uniqueSpecies)]);
+  }, [originalAnimals]);
+
 
   const filtrarAnimales = (data) => {
     let filteredData = data;
@@ -50,11 +64,32 @@ const SeccionAnimales = () => {
     return filteredData;
   };
 
-  // HOLA
 
   const filtrarPorNombre = (data) => {
     return data.filter(animal => animal.nombre.toLowerCase().includes(searchTerm.toLowerCase()));
   };
+
+    if (filters.ciudad) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.ciudad === filters.ciudad
+      );
+    }
+    if (filters.especie) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.especie === filters.especie
+      );
+    }
+    if (filters.sexo) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.sexo === filters.sexo
+      );
+    }
+    if (filters.tamaño) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.tamaño === filters.tamaño
+      );
+    }
+
 
   const filtrarPorFiltros = (data) => {
     return data.filter(animal => {
@@ -65,6 +100,7 @@ const SeccionAnimales = () => {
       return true;
     });
   };
+
 
   const handleFilterChange = (name, value) => {
     if (name === 'ciudad') {
@@ -84,6 +120,7 @@ const SeccionAnimales = () => {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+
   };
 
   if (error) {
@@ -168,21 +205,23 @@ const SeccionAnimales = () => {
         </div>
         <ul className="main_animal_container">
           {animals.map((animal) => (
-            <li key={animal._id} className="individual_animal_container">
-              <div className="animal_photo">
-                <img src={animal.imagen} alt={animal.nombre} />
-              </div>
-              <div className="animal_data">
-                <div className="animal_name">
-                  <h2>{animal.nombre}</h2>
+            <Link to={`/Adopcion/${animal._id}`}>
+              <li key={animal._id} className="individual_animal_container">
+                <div className="animal_photo">
+                  <img src={animal.imagen} alt={animal.nombre} />
                 </div>
-                <div className="animal_city">
-                  <p>
-                    <strong>Ciudad:</strong> {animal.ciudad}
-                  </p>
+                <div className="animal_data">
+                  <div className="animal_name">
+                    <h2>{animal.nombre}</h2>
+                  </div>
+                  <div className="animal_city">
+                    <p>
+                      <strong>Ciudad:</strong> {animal.ciudad}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
