@@ -8,6 +8,8 @@ import SeccionAnimales from './components/Pages/SeccionAnimales/SeccionAnimales'
 import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
 import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/SeccionOtrosServicios';
 import { Carrousel } from './components/Pages/Carrousel/Carrousel';
+import { Acceder } from './components/Pages/Acceder/Acceder';
+import { SeccionRegistro } from './components/Pages/SeccionRegistro/SeccionRegistro';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path= "/" element= {<Home/>}/>
         <Route path= "/Carrousel" element= {<Carrousel/>}/>
+        <Route path= "/Acceder" element= {<Acceder/>}/>
+        <Route path= "/Registro" element= {<SeccionRegistro/>}/>
         <Route path = "/Mapa" element= {<SeccionMapa/>} />
         <Route path = "/Adopcion" element= {<SeccionAnimales/>} />
         <Route path = "/Perfil" element= {<SeccionPerfil/>} />
