@@ -5,7 +5,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import img1 from "../../../images/servicio-animal.png";
 import img2 from "../../../images/movil_animal.png";
 import img3 from "../../../images/cajita_animal.png";
-
+// hola
 
 const options = {
     items: 1,
