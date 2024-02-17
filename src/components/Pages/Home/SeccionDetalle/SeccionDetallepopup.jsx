@@ -31,5 +31,5 @@ function SeccionDetallepopup({ isOpen, onClose, children }) {
     </div>
   );
 }
-//hola
+
 export default SeccionDetallepopup;
