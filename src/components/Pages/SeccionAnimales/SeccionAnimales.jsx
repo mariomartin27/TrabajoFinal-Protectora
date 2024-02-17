@@ -190,5 +190,5 @@ const SeccionAnimales = () => {
     </>
   );
 };
-
+//hola
 export default SeccionAnimales;
